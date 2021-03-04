@@ -1,6 +1,6 @@
 # Time Tracking Application
  
-<summary>Table of Contents</summary>
+Table of Contents
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -35,8 +35,8 @@ What would have I done diffrently with more time:
 
 ### Built With
 
-[React.js] (https://reactjs.org/)
-[Node.js] (https://nodejs.org/en/)
+* [React.js] (https://reactjs.org/)
+* [Node.js] (https://nodejs.org/en/)
 
 ### Features
 
@@ -52,7 +52,6 @@ What would have I done diffrently with more time:
 ### Prerequisites
 
 Please make sure you have the latest version of npm installed:
-* npm
   ```sh
   npm install npm@latest -g
   ```
@@ -98,6 +97,6 @@ Start the frontend:
    ```
    
 ### Acknowledgements
-[Bootstrap] (https://getbootstrap.com/)
-[Bootswatch] (https://bootswatch.com/darkly/)
-[Flaticon] (www.flaticon.com)
+* [Bootstrap] (https://getbootstrap.com/)
+* [Bootswatch] (https://bootswatch.com/darkly/)
+* [Flaticon] (www.flaticon.com)
