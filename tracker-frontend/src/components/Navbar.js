@@ -6,7 +6,7 @@ const Navbar = () => {
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">
+                <a className="navbar-brand">
                     <img src={logo} alt="Logo" style={{ width: "7%", height: "7%" }} className="d-inline-block align-center mr-3"></img>
                     Time Tracker
                 </a>
