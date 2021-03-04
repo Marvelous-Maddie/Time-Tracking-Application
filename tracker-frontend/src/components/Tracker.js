@@ -6,6 +6,7 @@ const Tracker = () => {
     const [playing, setPlaying] = useState(false);
     const [interv, setInterv] = useState();
 
+    //Only counting seconds
     // useEffect(() => {
     //     if (playing) {
     //         const id = window.setInterval(() => {
@@ -15,6 +16,7 @@ const Tracker = () => {
     //     }
     // }, [playing]);
 
+    //Start time tracker
     const start = () => {
         run();
         setPlaying(true);
@@ -36,11 +38,13 @@ const Tracker = () => {
         return setTime({s:updatedS, m:updatedM, h:updatedH});
     };
     
+    //Stop time tracker
     const stop = () => {
         clearInterval(interv);
         setPlaying(false);
     };
     
+    //Reset time tracker
     const reset = () => {
         clearInterval(interv);
         setPlaying(false);
@@ -50,11 +54,15 @@ const Tracker = () => {
     return(
         <div class="d-grid gap-2 col-2 mx-auto my-5">
             <h2 className="d-flex mx-auto my-5">
-                Tracker
+                Time Tracker
             </h2>
+
+            {/*Time tracker*/}
             <h1 className="d-flex mx-auto my-5">
                 {time.h}:{time.m}:{time.s}
             </h1>
+
+            {/*Buttons*/}
             {playing ? (
                 <button type="button" className="btn btn-primary my-2" onClick={() => stop()}>
                     Stop
@@ -70,6 +78,7 @@ const Tracker = () => {
             <button type="button" className="btn btn-outline-light mt-2 mb-5" onClick={() => reset()}>
                 Reset
             </button>
+            
         </div>
     )
 };

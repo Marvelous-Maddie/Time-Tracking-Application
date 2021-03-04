@@ -4,6 +4,7 @@ const AllTasks = () => {
     const [list, setList] = useState([]);
     const [query, setQuery] = useState();
 
+    //Fetch all tasks
     const fetchData = async () => {
         const res = await fetch("http://localhost:5000/");
         res
@@ -16,6 +17,7 @@ const AllTasks = () => {
         fetchData();
     },[]);
 
+    //Query data by description
     const handleChange = e => {
         const newQuery = e.target.value;
         setQuery(newQuery);
@@ -24,9 +26,9 @@ const AllTasks = () => {
     const queryData = async (query) => {
         const res = await fetch(`http://localhost:5000/find/:${query}`);
         res
-        .json()
-        .then(res => setList(res))
-        .catch(alert);
+            .json()
+            .then(res => setList(res))
+            .catch(alert);
     };
 
     const handleSubmit = e => {
@@ -41,10 +43,14 @@ const AllTasks = () => {
             <h2 className="d-flex mx-auto my-5">
                 Overview for all tracked tasks
             </h2>
+
+            {/*Query*/}
             <form className="d-flex my-5" onSubmit={handleSubmit}>
                 <input className="form-control me-2" type="search" placeholder="Search description" aria-label="Search" onChange={handleChange} />
                 <button className="btn btn-primary" type="submit">Search</button>
             </form>
+
+            {/*List of all tasks*/}
             <table class="table-dark table-striped">
                 <thead>
                     <tr>
@@ -65,6 +71,7 @@ const AllTasks = () => {
                     })}
                 </tbody>
             </table> 
+            
         </div>
     )
 };
