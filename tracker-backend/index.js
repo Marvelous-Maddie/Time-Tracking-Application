@@ -11,6 +11,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+//Connection to MongoDB
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 const connection = mongoose.connection;
@@ -18,12 +19,14 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
+//Get all tasks
 app.get('/', (req, res) => {
     Task.find().sort( {timestamp: 'desc'})
       .then(tasks => res.json(tasks))
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
+//Query tasks by description
 app.get('/find/:query', (req, res) => {
     const query = req.params.query;
 
@@ -32,6 +35,7 @@ app.get('/find/:query', (req, res) => {
      .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//Add new task
 app.post('/addTask', (req, res) => {
     const duration = req.body.duration;
     const description = req.body.description;
