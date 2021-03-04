@@ -51,34 +51,40 @@ const Tracker = () => {
         setTime({s:0, m:0, h:0})
     };
 
+    //Add task button
+    const handleSubmit = () => {
+        //body
+    };
+
     return(
-        <div class="d-grid gap-2 col-2 mx-auto my-5">
+        <div class="d-grid gap-2 col-6 mx-auto my-5">
             <h2 className="d-flex mx-auto my-5">
                 Time Tracker
             </h2>
+            <div class="d-grid gap-2 col-2 mx-auto my-5">
 
-            {/*Time tracker*/}
-            <h1 className="d-flex mx-auto my-5">
-                {time.h}:{time.m}:{time.s}
-            </h1>
+                {/*Time tracker*/}
+                <h1 className="d-flex mx-auto my-5">
+                    {time.h}:{time.m}:{time.s}
+                </h1>
 
-            {/*Buttons*/}
-            {playing ? (
-                <button type="button" className="btn btn-primary my-2" onClick={() => stop()}>
-                    Stop
+                {/*Buttons*/}
+                {playing ? (
+                    <button type="button" className="btn btn-primary my-2" onClick={() => stop()}>
+                        Stop
+                    </button>
+                ) : (
+                    <button type="button" className="btn btn-primary my-2" onClick={() => start()}>
+                        Start
+                    </button>
+                )}
+                <button type="button" className="btn btn-success my-2" onClick={() => handleSubmit()}>
+                    Add Task
                 </button>
-            ) : (
-                <button type="button" className="btn btn-primary my-2" onClick={() => start()}>
-                    Start
+                <button type="button" className="btn btn-outline-light mt-2 mb-5" onClick={() => reset()}>
+                    Reset
                 </button>
-            )}
-            <button type="button" className="btn btn-success my-2">
-                Add Task
-            </button>
-            <button type="button" className="btn btn-outline-light mt-2 mb-5" onClick={() => reset()}>
-                Reset
-            </button>
-            
+            </div>
         </div>
     )
 };
