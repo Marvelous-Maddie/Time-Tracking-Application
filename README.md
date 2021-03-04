@@ -43,7 +43,7 @@ What would have I done diffrently with more time:
 <ul>
  <li>A time tracker that starts, stops, resumes and resets.</li>
  <li>A list of all tracked times.</li>
- <li>Add time and task to th list (only backend)>/li>
+ <li>Add time and task to the list (only backend)>/li>
  <li>Query the list.</li>
 </ul>
  
