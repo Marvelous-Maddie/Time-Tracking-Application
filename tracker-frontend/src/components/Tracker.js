@@ -53,7 +53,7 @@ const Tracker = () => {
     };
 
     return(
-        <div class="d-grid gap-2 col-6 mx-auto my-5">
+        <div className="d-grid gap-2 col-6 mx-auto my-5">
             <h2 className="d-flex mx-auto my-5">
                 Time Tracker
             </h2>

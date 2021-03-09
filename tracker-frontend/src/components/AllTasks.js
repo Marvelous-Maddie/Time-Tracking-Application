@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import Pagination from './Pagination';
 
 const AllTasks = () => {
     const [list, setList] = useState([]);
     const [query, setQuery] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [tasksPerPage] = useState(2);
 
     //Fetch all tasks
     const fetchData = async () => {
@@ -17,6 +20,14 @@ const AllTasks = () => {
         fetchData();
     },[]);
 
+    // Get current posts
+    const indexOfLastTask = currentPage * tasksPerPage;
+    const indexOfFirstTask = indexOfLastTask - tasksPerPage;
+    const currentTasks = list.slice(indexOfFirstTask, indexOfLastTask);
+
+    // Change page
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+  
     //Query data by description
     const handleChange = e => {
         const newQuery = e.target.value;
@@ -35,11 +46,11 @@ const AllTasks = () => {
         e.preventDefault();
         if (!query) return fetchData();
         queryData(query);
-        setQuery()
+        //setQuery()
     };
 
     return(
-        <div class="d-grid gap-2 col-6 mx-auto my-5">
+        <div className="d-grid gap-2 col-6 mx-auto my-5">
             <h2 className="d-flex mx-auto my-5">
                 Overview for all tracked tasks
             </h2>
@@ -51,7 +62,7 @@ const AllTasks = () => {
             </form>
 
             {/*List of all tasks*/}
-            <table class="table-dark table-striped">
+            <table className="table-dark table-striped">
                 <thead>
                     <tr>
                     <th scope="col">Duration</th>
@@ -60,7 +71,7 @@ const AllTasks = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {list.map(l => {
+                    {currentTasks.map(l => {
                         return(
                         <tr key={l.id}>
                             <td>{l.duration}</td>
@@ -71,6 +82,12 @@ const AllTasks = () => {
                     })}
                 </tbody>
             </table> 
+
+            <Pagination
+                tasksPerPage={tasksPerPage}
+                totalTasks={list.length}
+                paginate={paginate}
+            />
             
         </div>
     )
