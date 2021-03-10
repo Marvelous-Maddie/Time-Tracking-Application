@@ -34,14 +34,6 @@ const AllTasks = () => {
         setQuery(newQuery);
     };
 
-    const queryData = async (query) => {
-        const res = await fetch(`http://localhost:5000/find/:${query}`);
-        res
-            .json()
-            .then(res => setList(res))
-            .catch(alert);
-    };
-
     const handleSubmit = e => {
         e.preventDefault();
         if (!query) return fetchData();
@@ -49,6 +41,14 @@ const AllTasks = () => {
         //setQuery()
     };
 
+    const queryData = async (query) => {
+        const res = await fetch(`http://localhost:5000/find/:${query}`);
+        res
+            .json()
+            .then(res => setList(res))
+            .catch(alert);
+    };
+    
     return(
         <div className="d-grid gap-2 col-6 mx-auto my-5">
             <h2 className="d-flex mx-auto my-5">
@@ -74,7 +74,7 @@ const AllTasks = () => {
                     {currentTasks.map(l => {
                         return(
                         <tr key={l.id}>
-                            <td>{l.duration}</td>
+                            <td>{l.duration}</td>   {/*Ändern: hours, minutes, seconds*/}
                             <td>{l.description}</td>
                             <td>{l.timestamp}</td>
                         </tr>

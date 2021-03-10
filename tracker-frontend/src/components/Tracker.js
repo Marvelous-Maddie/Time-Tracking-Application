@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import AddTask from './AddTask';
+import { Link } from 'react-router-dom';
 
 const Tracker = () => {
     //const [seconds, setSeconds] = useState(0);
@@ -76,7 +76,9 @@ const Tracker = () => {
                         Start
                     </button>
                 )}
-                <AddTask time={time}/>
+                <button type="button" className="btn btn-danger my-2">
+                    <Link to={{pathname: "/addTask", state: { time: {time}}}}>Add Task</Link>
+                </button>
                 <button type="button" className="btn btn-outline-light mt-2 mb-5" onClick={reset}>
                     Reset
                 </button>
