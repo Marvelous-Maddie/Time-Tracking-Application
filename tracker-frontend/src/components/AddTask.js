@@ -2,9 +2,40 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const AddTask = () => {
+    //get state
     const location = useLocation();
     const {time} = location.state.time;
-    const [task, setTask] = useState({ duration: {time}, description: "", timestamp: Date.now()})
+    const {h, m, s} = time;
+
+    //Object to string
+    const hour = () => {
+        if(h >= 10) {
+            return h;
+        }else{
+           return "0" + h;
+        }
+    };
+
+    const min = () => {
+        if(m >= 10) {
+            return m;
+        }else{
+            return "0" + m;
+        }
+    };
+
+    const sec = () => {
+        if(s >= 10) {
+            return s;
+        }else{
+           return "0" + s;
+        }
+    };
+
+    const stringifiedTime = `${hour()}:${min()}:${sec()}`
+
+    //Create task and submit
+    const [task, setTask] = useState({ duration: stringifiedTime, description: "", timestamp: Date.now()})
     console.log(task);
 
     const handleChange = e => {
@@ -17,11 +48,8 @@ const AddTask = () => {
 
     const postData = (e, task) => {
         e.preventDefault();
-
         const {duration, description, timestamp} = task;
-        const {time} = duration;
-        const {h, m, s} = time;
-        console.log(1212, {h, m, s, description, timestamp});
+        console.log({duration, description, timestamp});
 
         const res = fetch("http://localhost:5000/addTask", {
         method: "POST",
@@ -29,7 +57,7 @@ const AddTask = () => {
             "Accept": "application/json, text/plain, */*",
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({h, m, s, description, timestamp})
+        body: JSON.stringify({duration, description, timestamp})
         })
         .then(res => res.json())
         .then(res => console.log(res))
@@ -45,9 +73,7 @@ const AddTask = () => {
             <div className="d-flex flex-column mx-auto my-2">
                 <h5 className="d-flex mt-5">Duration:</h5>
                 <p>
-                    <span>{(time.h >= 10)? time.h : "0"+ time.h}</span>: 
-                    <span>{(time.m >= 10)? time.m : "0"+ time.m}</span>:
-                    <span>{(time.s >= 10)? time.s : "0"+ time.s}</span>
+                    {stringifiedTime}
                 </p>
                 <form>
                     <div className="mb-3">

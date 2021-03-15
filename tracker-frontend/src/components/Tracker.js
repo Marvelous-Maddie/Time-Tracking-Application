@@ -7,7 +7,6 @@ const Tracker = () => {
     const [playing, setPlaying] = useState(false);
     const [interv, setInterv] = useState();
 
-    //Only counting seconds
     // useEffect(() => {
     //     if (playing) {
     //         const id = window.setInterval(() => {
@@ -38,7 +37,7 @@ const Tracker = () => {
             updatedS++;
         return setTime({s:updatedS, m:updatedM, h:updatedH});
     };
-    
+
     //Stop time tracker
     const stop = () => {
         clearInterval(interv);

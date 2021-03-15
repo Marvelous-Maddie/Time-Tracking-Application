@@ -37,16 +37,12 @@ app.get('/find/:query', (req, res) => {
 
 //Add new task
 app.post('/addTask', (req, res) => {
-    const hours = req.body.duration.time.h;
-    const minutes = req.body.duration.time.m;
-    const seconds = req.body.duration.time.s;
+    const duration = req.body.duration;
     const description = req.body.description;
     const timestamp = req.body.timestamp;
   
     const newTask = new Task({
-      hours,
-      minutes,
-      seconds,
+      duration,
       description,
       timestamp
     });
