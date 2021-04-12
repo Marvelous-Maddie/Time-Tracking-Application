@@ -23,28 +23,40 @@ Table of Contents
 
 ## About The Project
 
-This project is about a simple time tracking application. It was build within 8.5 hours for a coding test. I'm quite satisfied with the result, even if there are some recommended functionalites missing. I learned a lot during the project, e. g. how to make a timer or how to implement search functionality.
-
-What would have I done diffrently with more time:
-<ul>
- <li>A timer like 00:00:00</li>
- <li>Pagination</li>
- <li>A better search functionality</li>
- <li>An Add task functionality</li>
-</ul>
+This project is about a simple time tracking application. Originally, it was build within 8.5 hours for a coding test and has been later modified. There were a lot of learning outcomes during the project, e. g. how to make a timer or how to implement search functionality.
 
 ### Built With
 
+Frontend:
 * [React.js] (https://reactjs.org/)
-* [Node.js] (https://nodejs.org/en/)
+* [React Router] (https://reactrouter.com/)
+* [Bootstrap] (https://getbootstrap.com/)
+* [Botswatch] (https://bootswatch.com/darkly/)
+
+Backend:
+* [Express.js] (https://expressjs.com/)
+* [MongoDB] (https://www.mongodb.com/)
+* [Mongoose] (https://mongoosejs.com/)
+* [CORS] (https://www.npmjs.com/package/cors)
+* [Dotenv] (https://www.npmjs.com/package/dotenv)
 
 ### Features
 
+Original features:
 <ul>
- <li>A time tracker that starts, stops, resumes and resets.</li>
- <li>A list of all tracked times.</li>
- <li>Add time and task to the list (only backend)>/li>
- <li>Query the list.</li>
+ <li>Navbar</li>
+ <li>A Timer, that can be started, stopped, restarted and reseted</li>
+ <li>Add task functionality, that saves duration, description and timestamp of a task to the db (backend only)</li>
+ <li>A list of all tracked tasks</li>
+ <li>Search functionality for all tracked tasks</li>
+ <li>Complete Express backend with connection to MongoDB</li>
+</ul>
+
+Later additions:
+<ul>
+ <li>Timer displayed like 00:00:00</li>
+ <li>Add task functionality, that saves duration, description and timestamp of a task to the db</li>
+ <li>Pagination for the All tasks-list</li>
 </ul>
  
 
@@ -97,6 +109,4 @@ Start the frontend:
    ```
    
 ### Acknowledgements
-* [Bootstrap] (https://getbootstrap.com/)
-* [Bootswatch] (https://bootswatch.com/darkly/)
 * [Flaticon] (www.flaticon.com)
