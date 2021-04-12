@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/prime-time.png';
 
 const Navbar = () => {
+    const [time] = useState({s:0, m:0, h:0});
+
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
@@ -14,14 +16,14 @@ const Navbar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item">
                             <Link exact to="/" className="nav-link">Tracker</Link>
                         </li>
-                        <li class="nav-item">
-                            <Link to="/addTask" className="nav-link">Add Task</Link>
+                        <li className="nav-item">
+                            <Link to={{pathname: "/addTask", state: { time: {time}}}} className="nav-link">Add Task</Link>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <Link to="/allTasks" className="nav-link">All Tasks</Link>
                         </li>
                     </ul>
